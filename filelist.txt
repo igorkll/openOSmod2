@@ -1,3 +1,4 @@
+/start.lua
 /etc/profile.lua
 /etc/motd
 /etc/rc.d/cursor.lua
