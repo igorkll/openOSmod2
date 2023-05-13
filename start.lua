@@ -9,7 +9,7 @@ local function roft_splash(str)
     os.sleep(0.5)
 end
 
-roft_splash("roft companuiy")
+roft_splash("roft company")
 roft_splash("sponsor - rootmaster")
 gui.status("OPEN OS MOD 2", 0)
 computer.beep(2000, 3)
