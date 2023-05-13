@@ -8,10 +8,12 @@ local function roft_splash(str)
     os.sleep(0.5)
 end
 
-roft_splash("corporate - roft")
-roft_splash("corporate - roft")
+roft_splash("roft companuiy")
+roft_splash("sponsor - krinj")
+gui.status("OPEN OS MOD 2", 0)
+computer.beep(2000, 3)
+os.sleep(0.5)
 
-
-if not component.isAvailable("internet") then
-    gui.status()
+while not component.isAvailable("internet") do
+    gui.status("no internet connection", true)
 end

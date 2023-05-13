@@ -114,10 +114,10 @@ local function createSystemCfg()
         hook = false,
         shellAllow = false,
         autoupdate = true,
-        updateRepo = "https://raw.githubusercontent.com/igorkll/openOSpath/main",
+        updateRepo = "https://raw.githubusercontent.com/igorkll/openOSmod2/main",
         updateVersionCfg = "/version.cfg",
-        logo = true,
-        startSound = true
+        logo = false,
+        startSound = false
     }
 end
 
