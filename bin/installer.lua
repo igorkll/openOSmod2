@@ -29,9 +29,9 @@ local rx, ry = gpu.getResolution()
 
 ------------------------------------------------------main
 
-local superMainurl = "https://raw.githubusercontent.com/igorkll/openOSpath"
-local mainurl = "https://raw.githubusercontent.com/igorkll/openOSpath/main"
-local label = "openOS Mod Installer V2"
+local superMainurl = "https://raw.githubusercontent.com/igorkll/openOSmod2"
+local mainurl = "https://raw.githubusercontent.com/igorkll/openOSmod2/main"
+local label = "superOS likeOS V7 installer"
 
 local function getFile(path)
     local file, err = io.open(path, "rb")
@@ -215,6 +215,7 @@ local status
 
 local function install(url)
     status("install at url " .. url)
+    os.sleep(1)
     local data = assert(wget(url .. "/filelist.txt"))
     for i, v in ipairs(split(data, "\n")) do
         status("downloading " .. v)
