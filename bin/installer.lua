@@ -215,7 +215,6 @@ local status
 
 local function install(url)
     status("install at url " .. url)
-    os.sleep(1)
     local data = assert(wget(url .. "/filelist.txt"))
     for i, v in ipairs(split(data, "\n")) do
         status("downloading " .. v)
@@ -298,7 +297,7 @@ end
 
 local states = {_G._OSVERSION ~= "OpenOS 1.7.5", not _G.smartEfi, not _G._MODVERSION}
 local active = {}
-local names = {"обновить openOS до версии 1.7.5", "устоновить micro bios", "устоновить мод для openOS"}
+local names = {"обновить openOS до версии 1.7.5", "утнывить NIL", "устнв модДляОпнОс"}
 
 if not eeprom then
     table.remove(names, 2)
@@ -351,8 +350,9 @@ for i, v in ipairs(names) do
 end
 
 local installers = {function() --update
-    install("https://raw.githubusercontent.com/igorkll/openOS/main")
+    --install("https://raw.githubusercontent.com/igorkll/openOS/main")
 end, function() --efi
+    --[[
     status("downloading bios")
     local biosCode = assert(wget("https://raw.githubusercontent.com/igorkll/microBios/main/compressed.bin"))
     
@@ -360,10 +360,11 @@ end, function() --efi
     eeprom.setData(fs.get("/").address .. "\n\n" .. "/init.lua")
     eeprom.set(biosCode)
     eeprom.setLabel("micro bios")
+    ]]
 end, function() --install mod
     install(mainurl)
-    status("saving config file")
-    saveTable("/etc/system.cfg", {updateRepo = mainurl})
+    --status("saving config file")
+    --saveTable("/etc/system.cfg", {updateRepo = mainurl})
 end}
 
 if not eeprom then
@@ -372,7 +373,7 @@ end
 table.remove(installers, 1) --обновлять openOS нет слысла вся openOS нужной версии теперь содержиться в репозитории
 
 do
-    local branchs = {"main", "dev"}
+    local branchs = {"main", "main"}
     local selectBranch = 1
 
     local obj = {}
