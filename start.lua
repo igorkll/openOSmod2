@@ -1,5 +1,6 @@
 local component = require("component")
 local computer = require("computer")
+local event = require("event")
 local gui = require("simpleGui3").create()
 
 local function roft_splash(str)
@@ -181,6 +182,8 @@ while true do
 		"market",
         "shutdown"
     }, sel)
+	event.hook = true
+	event.superHook = true
     if sel == 1 then
         os.execute("paint /home/save.pic -f")
 	elseif sel == 2 then
@@ -192,4 +195,6 @@ while true do
 	elseif sel == 5 then
 		computer.shutdown()
 	end
+	event.hook = false
+	event.superHook = false
 end
